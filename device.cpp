@@ -8,9 +8,9 @@
 #define UNIX 1 // comment this out if on windows
 
 #ifdef UNIX
-#define SERIAL_NUMBER "A10JK57"
-#else
 #define SERIAL_NUMBER "A10JK57L"
+#else
+#define SERIAL_NUMBER "A10JK57LA"
 #endif
 
 #define STEPPER_ACCELERATION 1000
