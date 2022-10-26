@@ -20,20 +20,6 @@ SOURCES += \
         device.cpp \
         main.cpp
 
-# Zaber Motion Control Library
-#win32 {
-#    CONFIG(debug, debug|release) {
-#        LIBS +=  -L"C:/Program Files/Zaber Motion Library/bin/Debug"
-#    }
-#    CONFIG(release, debug|release) {
-#        LIBS +=  -L"C:/Program Files/Zaber Motion Library/bin"
-#    }
-#
-#    LIBS += -L"C:/Program Files/Zaber Motion Library/lib" -lzml
-#    INCLUDEPATH += "C:/Program Files/Zaber Motion Library/include"
-#    DEPENDPATH += "C:/Program Files/Zaber Motion Library/include"
-#}
-
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
