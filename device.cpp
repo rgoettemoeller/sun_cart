@@ -5,6 +5,13 @@
 #include <chrono>
 #include <ctime>
 
+#define UNIX 1 // comment this out if on windows
+
+#ifdef UNIX
+#define SERIAL_NUMBER "A10JK57"
+#else
+#define SERIAL_NUMBER "A10JK57L"
+#endif
 
 #define STEPPER_ACCELERATION 1000
 #define LIGHT_POSITIONER_ACCELERATION 1000
@@ -365,7 +372,7 @@ bool zaberLightPositioner::Detect_Serial_Ports(){
         //If found, set the serial port name and return success.
         //The zaber library will then establish the connection to the device.
         //QSerialPort serialport;
-        if((serialnumber == "A10JK57L") && (identifier=="6001")){
+        if((serialnumber == SERIAL_NUMBER) && (identifier=="6001")){
             out << "   ->Zaber rotarty stage and stepper motor found on port " << portlocation << "." << endl;
             Set_Zaber_Serial_Port(portlocation.toStdString());
             foundZaberDevice = true;

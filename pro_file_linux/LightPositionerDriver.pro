@@ -7,9 +7,9 @@ CONFIG += static_runtime
 CONFIG += thread
 CONFIG -= app_bundle
 QMAKE_CXXFLAGS_RELEASE += -O2
-#QMAKE_CXXFLAGS_RELEASE += /MT
+QMAKE_CXXFLAGS_RELEASE += /MT
 QMAKE_CXXFLAGS_RELEASE -= /MD
-#QMAKE_CXXFLAGS += /MT
+QMAKE_CXXFLAGS += /MT
 QMAKE_CXXFLAGS -= /MD
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -19,6 +19,20 @@ QMAKE_CXXFLAGS -= /MD
 SOURCES += \
         device.cpp \
         main.cpp
+
+# Zaber Motion Control Library
+#win32 {
+#    CONFIG(debug, debug|release) {
+#        LIBS +=  -L"C:/Program Files/Zaber Motion Library/bin/Debug"
+#    }
+#    CONFIG(release, debug|release) {
+#        LIBS +=  -L"C:/Program Files/Zaber Motion Library/bin"
+#    }
+#
+#    LIBS += -L"C:/Program Files/Zaber Motion Library/lib" -lzml
+#    INCLUDEPATH += "C:/Program Files/Zaber Motion Library/include"
+#    DEPENDPATH += "C:/Program Files/Zaber Motion Library/include"
+#}
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -34,6 +48,3 @@ else:unix: LIBS += -L$$PWD/../../../../usr/local/lib/ -lzml
 
 INCLUDEPATH += $$PWD/../../../../usr/local/include
 DEPENDPATH += $$PWD/../../../../usr/local/include
-
-#INCLUDEPATH += /usr/local/lib/
-#DEPENDPATH += /usr/local/lib/
