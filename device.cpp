@@ -14,9 +14,9 @@
 #endif
 
 #define STEPPER_ACCELERATION 1000
-#define LIGHT_POSITIONER_ACCELERATION 1000
+#define STEPPER_MOTOR_ACCELERATION 10.0
 #define STEPPER_MOTOR_MULTIPLIER 10.0
-#define LIGHT_POSITIONER_VELOCITY 10.0
+#define STEPPER_MOTOR_VELOCITY 10.0
 #define ROTATION_STAGE_VELOCITY 10.0
 #define ROTATION_STAGE_ACCELERATION 10.0
 
@@ -639,7 +639,7 @@ bool zaberLightPositioner::Set_Stepper_Motor_Angular_Position(double degrees){
         if(degrees <= max_abs_elevation && degrees <= max_con_elevation && degrees >= min_abs_elevation && degrees >= min_con_elevation){
             try {
                 if(console_output) cout << "-->Moving stepper motor to " << degrees << " degrees (Absolute)." << endl;
-                stepper_motor_axis->moveAbsolute(degrees * stepper_motor_units_to_elevation_degrees, Units::ANGLE_DEGREES,false);
+                stepper_motor_axis->moveAbsolute(degrees * stepper_motor_units_to_elevation_degrees, Units::ANGLE_DEGREES,false, STEPPER_MOTOR_VELOCITY, Units::ANGULAR_VELOCITY_DEGREES_PER_SECOND, STEPPER_MOTOR_ACCELERATION, Units::ANGULAR_ACCELERATION_DEGREES_PER_SECOND_SQUARED);
                 return true;
             } catch (const MotionLibException& e) {
                 std::cerr << e.getMessage() << std::endl;
