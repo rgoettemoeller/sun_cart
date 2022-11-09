@@ -42,3 +42,44 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+
+
+// Commandline interface for manual commands
+void cmd_loop()
+{
+    string command;
+
+    cout << "Command syntax: " << endl;
+    cout << "For azimuth control: 'setaz [angle in degrees]'" << endl;
+    cout << "For elevation control: 'setel [angle in degrees]'" << endl;
+
+    while (command != "q" && command != "quit" && command != "exit") {
+        // gather user input for commands each loop
+        cin >> command;
+        cout << "Current positions: " << endl;
+        cout << "" << endl;
+
+        // TODO: Display positions of both motors before each command
+
+        if (command.rfind("setaz", 0) == 0) {
+            // set azimuth angle command
+        }
+        if (command.rfind("setel", 0) == 0) {
+            // set elevation angle command
+        }
+        if (command.rfind("setaz_accel", 0) == 0) {
+            // set azimuth acceleration parameter
+        }
+        if (command.rfind("setel_accel", 0) == 0) {
+            // set elevation acceleration parameter
+        }
+
+        // Additional command options below...
+
+    }
+
+
+
+
+
+}
